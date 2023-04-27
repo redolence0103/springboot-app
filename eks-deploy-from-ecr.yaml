@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: my-springboot-deployment
+  namespace: mrn
 spec:
   replicas: 2
   selector:
@@ -14,7 +15,7 @@ spec:
     spec:
       containers:
       - name: my-springboot-app
-        image: 211223789150.dkr.ecr.us-east-2.amazonaws.com/my-docker-repo
+        image: 855607364597.dkr.ecr.ap-northeast-2.amazonaws.com/mrn-docker-repo
         imagePullPolicy: Always
         ports:
         - containerPort: 8085
@@ -27,6 +28,7 @@ metadata:
     app: springboot-app
     k8s-app: springboot-app
   name: springboot-app
+  namespace: mrn
 spec:
   ports:
   - name: http
